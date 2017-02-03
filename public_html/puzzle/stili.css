@@ -1,0 +1,55 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 3-feb-2017, 8.48.58
+    Author     : tss
+*/
+
+#conteni{
+    width: 700px; height: 400px;
+    margin-left: 100px; margin-right: 100px;  
+}
+
+#conteni div{
+    float: left;
+    width: 200px;
+    height: 200px;
+    border: solid 1px black;
+    margin: 10px;
+    background-image: url("immagine.jpg"); background-size: 600px 400px;
+    background-repeat: no-repeat;
+    
+}
+
+#conteni div:nth-child(1){
+                        /* prima x e poi y */
+    background-position: 0px -0px
+}
+
+#conteni div:nth-child(2){
+    background-position: -200px 0px
+}
+
+#conteni div:nth-child(3){
+    background-position: -400px 0px
+}
+
+#conteni div:nth-child(4){
+    background-position: -0px -200px
+}
+
+#conteni div:nth-child(5){
+    background-position: -200px -200px
+}
+
+#conteni div:nth-child(6){
+    background-position: -400px -200px
+}
+
+#conteni:hover div{
+    border: solid 1px transparent;
+    margin: 0px
+}
