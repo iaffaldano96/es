@@ -16,7 +16,7 @@ p {
 }
 
 p:after{
-    content: ' paragrafo num: ' counter(contap,upper-alpha)
+    content: ' paragrafo num: ' counter(contap)
 }
 
 body{
