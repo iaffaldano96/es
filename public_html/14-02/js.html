@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Java Easy</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function inverti(){
+                alert("Funzione inverti bella zio");
+                var r=prompt("Inserisci il tuo nick","");
+                /* restituisce di che tipo è [String in questo caso] */                
+                var lunr=r.length;                 
+                var r1="Hai scritto " +r+ "\n";
+                var r2="Lungo: "+lunr+"\n";
+                var r3="Tipo Lunghezza: "+(typeof lunr)+"\n";
+                var r4="Tipo r: "+(typeof r)+"\n";
+                var testLung=r.length>5;
+                var r5="Test lung: "+testLung+"\n";
+                var r6="Tipo test: "+(typeof testLung)+"\n";
+                alert(r1+r2+r3+r4+r5+r6);
+                if(testLung){
+                    alert("Il nick è tanto lungo");
+                }
+                else{
+                    alert("Il nick è tanto corto");
+                }
+                var car=r.charAt(3); /*parte da 0*/
+                alert("4° carattere: "+car);
+                var ci="";
+                for (var i = r.length; i >0; i--) {
+                    ci=ci+r.charAt(i-1);
+                }
+                alert("Stringa originale: "+r+"\nStringa invertita: "+ci);
+            }
+            function reverse(x) { //riceve un paramentreo ed esce un parametro
+                var s="";
+                if(typeof x != "string"){
+                    console.log("errore");
+                }
+                for (var i = x.length; i >=0; i--) {
+                    s+=x.charAt(i);
+                }
+                return s;
+            }
+            function scriviInverso() {
+                var scritta=document.getElementById("nomeUser").value;
+                //alert("scriviinverso: "+scritta);
+                var rev=reverse(scritta);
+                document.getElementById("nomeUser").value=rev;
+                
+            }
+            
+            function somma2num() {
+                var a=prompt("Primo numero:");
+                var b=prompt("Secondo numero:");
+                var n1=parseInt(a,10);
+                var n2=parseInt(b,10);
+                alert(n1+n2);
+            }
+        </script>
+
+    </head>
+    <body>
+        <p onclick="inverti()">
+            CCIIAAOO
+        </p>
+        
+        <input type="button" onclick="inverti()" value="Cliccami Zio!">
+        <br> <br>
+        <input type="text" id="nomeUser"><br><br>
+        <input type="button" onclick="scriviInverso()" value="Non farlo!">
+        <br><br>
+        <input type="button" onclick="somma2num()" value="Somma Paradiso+Inferno">
+        
+    </body>
+</html>

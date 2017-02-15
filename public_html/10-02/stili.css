@@ -1,0 +1,54 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10-feb-2017, 8.44.44
+    Author     : tss
+*/
+
+#ball{
+    width: 1000px; height: 800px;
+    margin: auto
+}
+
+@keyframes ball {
+    0% { top: 0px; left: 500px;}
+    25% { top: 100px; left: 700px;}
+    50% { top: 650px; left: 600px;}
+    75% { top: 400px; left: 200px;}
+    100% { top: 0px; left: 500px;}
+}
+
+#ball .p1:hover,#ball .p2:hover,#ball .p3:hover{
+    animation-play-state: paused;
+}    
+
+#ball img{
+    width: 100px; height: 100px;
+    line-height: 100px;
+    margin: 40px 0px;
+    position: relative;
+    animation: ball 2s;
+    animation-iteration-count: 2; 
+    animation-direction: alternate
+}
+
+#ball .p2{    
+    animation-delay: 1s;
+}
+
+#ball .p3{   
+    animation-delay: 2s;       
+}
+
+#stop{
+    width: 50px;height: 20px;
+    border: dotted 2px brown;
+    text-align: center
+}
+
+#stop:hover img{
+    animation-play-state: paused;
+}    
