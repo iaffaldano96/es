@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>innerHTML</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="stili_inner.css">
+        <script>
+            function aggiungiTesto(x) {
+                var scritta = x;
+                document.getElementById("pag1").innerHTML += x;
+            }
+
+            function cancella() {                
+                    var testo = document.getElementById("pag1").innerHTML;
+                    document.getElementById("pag1").innerHTML = testo.substring(0, testo.length - 1);                
+            }
+            function cancellaT() {
+                var s_n = confirm("Sicuro di voler cancellare?");
+                if (s_n) {
+                    var testo = document.getElementById("pag1").innerHTML;
+                    document.getElementById("pag1").innerHTML = "";
+                }
+            }
+            
+            function smile(x) {
+                document.getElementById("pag1").innerHTML+=" <img src="+x+" width='20' height='20'>";
+            }
+        </script>    
+
+    </head>
+    <body>
+        <!-- ° .innerHTML ==> ti returna quello che c'è scritto tra un tag, tipo p, div 
+             ° substring(1p,2p) ==> magazzino  (3)=> da a a fine, (3,5)=> az [a incluso, sec z esclusa ], (0,3)=>mag
+                                    012345678    
+        -->
+        <div id="pag1">
+        </div>
+        <br><br>
+        <div id="pul">  
+            <input type="button" value="CIA" onclick="aggiungiTesto('CIA')"> &nbsp;&nbsp;
+            <input type="button" value="O" onclick="aggiungiTesto('O')">&nbsp;&nbsp;
+            <input type="button" value="CO" onclick="aggiungiTesto('CO')">&nbsp;&nbsp;
+            <input type="button" value="ME" onclick="aggiungiTesto('ME')">&nbsp;&nbsp;
+            <input type="button" value="STAI" onclick="aggiungiTesto('STAI')">&nbsp;&nbsp;
+            <input type="button" value="?" onclick="aggiungiTesto('?')">&nbsp;&nbsp;<br><br>
+            <input type="button" value="SPAZIO" onclick="aggiungiTesto('&nbsp;')">&nbsp;&nbsp;
+            <input type="button" value="INVIA" onclick="aggiungiTesto('<br>')">&nbsp;&nbsp;
+            <input type="button" value="BACKSP" onclick="cancella()">&nbsp;&nbsp;
+            <input type="button" value="CANCELLA" onclick="cancellaT()">&nbsp;&nbsp;
+            <img src='inc.jpg' onclick="smile('inc.jpg')" >&nbsp;&nbsp;
+            <img src='occhio.jpeg' onclick="smile('occhio.jpeg')">&nbsp;&nbsp;
+            <img src='triste.jpeg' onclick="smile('triste.jpeg')">&nbsp;&nbsp;
+            <img src='cuore.jpg' onclick="smile('cuore.jpg')">
+        </div>
+    </body>
+    
+     <!-- ESERCIZIO:
+            con un prompt ti chiede n righe e n colonne e sulla pag crei la griglia
+                °2 cicli for
+        -->
+    
+</html>
