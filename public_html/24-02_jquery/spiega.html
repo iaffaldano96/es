@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <!--
+            jQuery() ==>libreria che contiene una funzione =>$
+            $(parametri, stringa e alcune volte oggetto o funzioni)=> $_
+        
+            - $("#contenitore table.gioc1 tr:first-child").lenght ==>quanti ne h o trovati 
+        
+            METODI DELL'OGGETTO JQUERY =>hanno senso solo metto il $
+            - $("p#para1").html("ciao")=> a sec del num di param, posso leggere o scrivere su questo oggetto. Gestisce innerHTML
+                - $("p#para1").html(0)=>inserisco dapperttutto 0
+                - var scritta=$("p#para1").html()=> per leggere cosa c'è scritto in para1
+              - $("input#t1").val()=> stessa cosa ma si riferisce a una casella di testo
+        
+            - $(" ").css()=> 1)$("p.errore").css("color","red")=>tutti i paragrafi di classe errore rossi
+                             2) var colore =$("p.errore").css("color")=> restituisce il colore del primo colore che trova
+                             3)$("p.errore").css({"color":"red", "nomeProprietà":"valore"})=> 
+            
+            - addclass
+            - removeclass
+        
+            - $("img#img1 ").attr("src","imma.jpg")=> posso 1 o 2 param //carico  a tutti della stessa classe la stessa immagine
+                - var percorso =$("img#img1 ").attr("src")=> mi restituisce il percorso dell'immagine
+        
+            EVENTO CLICK
+                //ogni volta che clicco sulla cella, fa la funzione anonima nei td, cioè scrive * nella cella
+            - $("table#g1 td").click(function(){
+                                        $(this).html("*")
+                                        var x=$(this).html(); =>per leggere la roba nella cella
+                                      })    
+        
+        -->
+        
+        
+    </body>
+</html>

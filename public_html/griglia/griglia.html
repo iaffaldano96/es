@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Griglia</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="stili_tabe.css">
+        <script>
+
+            function creaTab(id, r, c, fz) {
+                r = parseInt(r);
+                c = parseInt(c);
+                var tab = "";
+                tab = "<table id=" + id + ">";
+                for (var i = 0; i < r; i++) {
+                    tab += "<tr>";
+                    for (var j = 0; j < c; j++) {
+                        tab += "<td>" + fz(i, j) + " </td>";
+                    }
+                    tab += "</tr>";
+                }
+                tab += "</table>";
+                return tab;
+            }
+
+            function crea(id) {
+                var c = document.getElementById("c").value;
+                var r = document.getElementById("r").value;
+                var t = creaTab(id, r, c, function (riga, colonna) {
+                    if (((riga % 2 == 0) && (colonna % 2 == 0)) || ((riga % 2 != 0) && (colonna % 2 != 0)))
+                        return "<div style='width:100%; height:100%; background-color:red'></div>";
+                    else
+                        return "";
+                    //return (riga+1)*(colonna+1);                                            
+                });
+                document.getElementById("lavtabe").innerHTML = t;
+            }
+
+            /*function scelta(num) {
+             if (num >= 0 && num < 31)
+             return   "<div style='width:100%; height:100%; background-color:red'></div>";
+             else {
+             if (num > 30 && num < 61)
+             return   "<div style='width:100%; height:100%; background-color:yellow'></div>";
+             else
+             return   "<div style='width:100%; height:100%; background-color:greenyellow'></div>";
+             }
+             }*/
+
+            function creadiv(contenuto, colore, sfondo) {
+                return '<div style="background-color:' + sfondo + ';color:' + colore + '">' + contenuto + '</div>';
+            }
+
+            function creacroce(id) {
+                var c = document.getElementById("c").value;
+                var r = document.getElementById("r").value;
+
+                var t = creaTab(id, r, c, function () {
+                    var cc = document.getElementById("nc").value;
+                    var rr = document.getElementById("nr").value;
+                    if ((r == rr) && (c = cc))
+                        return creadiv("+", "black", "red");
+                    else {
+                        if (r == rr)
+                            return creadiv("-", "black", "greenyellow");
+                        else {
+                            if (c == cc)
+                                return creadiv("*", "black", "yellow");
+                        }
+                    }
+                });
+                document.getElementById("lavtabe").innerHTML = t;
+            }
+
+        </script>    
+    </head>
+    <body>
+
+        <div id="lavtabe">
+
+        </div>
+        <div class="pull">
+            Righe &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value="" id="r"> 
+            <br><br>
+            Colonne &nbsp;&nbsp;<input type="text" value="" id="c">
+            <br><br>
+            <input type="button" value="CREA SCACC" id="crea" onclick="crea('tab1')">        
+        
+            <br><br>
+            Riga &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value="" id="nr"> 
+            <br><br>
+            Colonna &nbsp;&nbsp;<input type="text" value="" id="nc">
+            <br><br>
+            <input type="button" value="CREA CRO" id="crea" onclick="creacroce('tab1')">
+        </div>
+
+    </body>
+</html>
