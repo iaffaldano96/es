@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Spiegazione</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+       <!--
+                CHIAMATE AJAX
+       
+            Devono avere lo stesso dominio e server
+       
+            Attributo dato="1" ==>inventato da noi
+       
+            funzione val() => permette di interpretare il json direttamente 
+       
+            CHIAMATA AJAX
+                $.ajax({
+                        "url": nf ==> percorso del file
+                        "success": function (data, textStatus, jqXHR) { =>riceve di solito tre parametri. 
+                            alert(data);  data =>Se ha avuto successo
+                                                 In pratica è il contenuto del file a cui ti riferisci 
+                                                 s lo stato. jqXHR restituisce che è un oggetto
+                        }  
+                            Se da errore, tipo hai sbagliato il percorso del file
+                        "error": function (x, s, y) {  ==> x e y contengono una serie di dati. s lo stato
+                            alert(errore);
+                        }
+                        
+                });
+       
+            c = "persona=" + r;
+            eval(c);   //crea una variabile persona, un oggetto persona
+       -->
+    </body>
+</html>

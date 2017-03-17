@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Home</title>
+        <script src="jquery-3.1.1.js" type="text/javascript"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="stili_ajax.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        
+        <input type="button" dato="1" value="CLICCA PER TESTO 1" class="scelta">
+        <input type="button" dato="2" value="CLICCA PER TESTO 2" class="scelta">
+        <input type="button" dato="3" value="CLICCA PER TESTO 3" class="scelta">
+        <br><br>
+        <div id="div1"></div>        
+        
+        <script>
+            
+            $(".scelta").click(function() {
+                    
+                    var dato= $(this).attr("dato");
+                    var nf="dati/testo"+dato;
+                    $.ajax({
+                        "url": nf,
+                        "success": function (r, s, x) {
+                            $("#div1").html(r);                            
+                        },
+                        "error": function (x, s, y) {
+                            alert("errore");
+                        }
+                    });
+                });
+            
+        </script>
+    </body>
+</html>

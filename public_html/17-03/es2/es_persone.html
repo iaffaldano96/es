@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Informazioni personali</title>
+        <script src="jquery-3.1.1.js" type="text/javascript"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <input type="button" dato="1" value="CLICCA PERSONA 1" class="scelta">
+        <input type="button" dato="2" value="CLICCA PERSONA 2" class="scelta">
+        <input type="button" dato="3" value="CLICCA PERSONA 3" class="scelta">
+        <br><br>
+
+        Nome <input type="text" id="nome"> <br><br>
+        Cognome <input type="text"  id="cognome"> <br><br>
+        Email <input type="text"  id="email">
+
+        <script>
+
+            $(".scelta").click(function () {
+
+                var dato = $(this).attr("dato");
+                var nf = "dati2/testo" + dato+".js";
+                
+                 $.ajax({                     
+                    "url": nf,                    
+                    "success": function (r, s, x) {
+                        var c = "persona=" + r;
+                        eval(c);   //crea una variabile persona, un oggetto persona
+                        $("#nome").val(persona.nome); //da ora posso usarla specificatamente
+                        $("#cognome").val(persona.cognome);
+                        $("#email").val(persona.email);
+                    },
+                    "error": function (x, s, y) {
+                        alert("errore");
+                    }
+                });
+            });
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Tastierina numerica </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="stili_tast.css" rel="stylesheet" type="text/css"/>
+        <script src="jquery-3.1.1.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <br>
+        <div class="conte">
+            <div id="div1"></div>
+            <div id="div2"></div>
+        </div>
+        <br>
+        <div id="numeri">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>0</div>
+        </div>
+        <br> <br>
+        <div id="cancella">CE</div>
+        <div id="cancellaUltimo">CANC</div>
+        <div id="testo">
+            <span>Sfondo </span>
+            <span>Testo</span>
+        </div>
+        <div id="scrollBar">Scroll:
+            <span>Si</span>/
+            <span>No</span>
+        </div>
+        <div id="ombra">Ombra:
+            <span>Si</span>/
+            <span>No</span>
+        </div>
+        
+        <div class="pulsanteA_S acceso">Proprietà:
+            <span>Acceso</span>/
+            <span>Spento</span>
+        </div>
+
+        <script>
+            function creaTab(id, r, c, fz) {
+                var tab = "";
+                tab = "<table id=" + id + ">";
+                for (var i = 0; i < r; i++) {
+                    tab += "<tr>";
+                    for (var j = 0; j < c; j++) {
+                        tab += "<td>" + fz() + " </td>";
+                    }
+                    tab += "</tr>";
+                }
+                tab += "</table>";
+                return tab;
+            }
+            function crea2(id) {
+                var a = 10;
+                var b = 1;
+                document.getElementById("div2").innerHTML = creaTab(id, a, b, function () {
+                    return " ";
+                });
+            }
+            $("#div2").html(crea2('tab2'));
+
+            var colore;
+            $("#div2 table#tab2 td").click(function () {
+                colore = $(this).css("background-color");
+                $("td").css("outline", "none");
+                $(this).css("outline", "dashed 4px black");
+                //$("#div1").css("color", colore);
+            });
+
+            /*$("#testo span:nth-child(1)").click(function () {
+             $(this).css("font-weight","bold");
+             $("#testo span:nth-child(2)").css("font-weight","normal");
+             $("#div1").css("color", colore);
+             });                                                
+             $("#testo span:nth-child(2)").click(function () {
+             $(this).css("font-weight","bold");
+             $("#testo span:nth-child(1)").css("font-weight","normal");
+             $("#div1").css("background-color", colore);
+             });     */
+
+            // altro metodo
+            //var target="Sfondo";
+
+            $("#div2 table#tab2 td").click(function () {
+                var colore = $(this).css("background-color");
+                var target = $("#testo").data("target");
+                if (target == "Testo") {
+                    $("#div1").css("color", colore);
+                } else {
+                    $("#div1").css("background-color", colore);
+                }
+            });
+
+            $("#testo span:nth-child(2)").css("font-weight", "bold");
+
+            $("#testo").data("target", "Sfondo");
+
+            $("#testo").click(function () {
+                //leggo quanto vale
+                var target = $("#testo").data("target");
+                if (target == "Sfondo") {
+                    $("#testo span:nth-child(1)").css("font-weight", "normal");
+                    $("#testo span:nth-child(2)").css("font-weight", "bold");
+                    $("#testo").data("target", "Testo");
+                } else {
+                    $("#testo span:nth-child(2)").css("font-weight", "normal");
+                    $("#testo span:nth-child(1)").css("font-weight", "bold");
+                    $("#testo").data("target", "Sfondo");
+                }
+            });
+
+            $(".pulsanteA_S").click(function() {
+                                        if($(this).hasClass("acceso"))
+                                            $(this).removeClass("acceso");
+                                        else
+                                            $(this).addClass("acceso");
+                                    });
+
+            $("#scrollBar span:nth-child(2)").css("font-weight", "bold");
+            $("#div1").css("overflow", "hidden");
+
+            $("#scrollBar").data("scroll", true);
+
+            $("#scrollBar").click(function () {
+                var b = $("#scrollBar").data("scroll");
+                if (b) {          //se il contenuto supera la lun, taglia il testo
+                    $("#div1").css("overflow", "hidden");
+                    $("#scrollBar").data("scroll", false);
+                    $("#scrollBar span:nth-child(1)").css("font-weight", "normal");
+                    $("#scrollBar span:nth-child(2)").css("font-weight", "bold");
+                } else {
+                    $("#div1").css("overflow", "scroll");
+                    $("#scrollBar").data("scroll", true);
+                    $("#scrollBar span:nth-child(1)").css("font-weight", "bold");
+                    $("#scrollBar span:nth-child(2)").css("font-weight", "normal");
+                }
+
+            });
+            
+            $("#ombra span:nth-child(2)").css("font-weight", "bold");
+            $("#ombra").data("omb", true);
+
+            $("#ombra").click(function () {
+                var b = $("#ombra").data("omb");
+                if (b) {     
+                    $("#div1").css("text-shadow", "none");
+                    $("#ombra span:nth-child(1)").css("font-weight", "normal");
+                    $("#ombra span:nth-child(2)").css("font-weight", "bold");
+                    $("#ombra").data("omb", false);                    
+                } else {
+                    $("#ombra span:nth-child(1)").css("font-weight", "bold");
+                    $("#ombra span:nth-child(2)").css("font-weight", "normal");
+                    $("#div1").css("text-shadow", "5px 5px 5px blue");
+                    $("#ombra").data("omb", true);                    
+                }
+
+            });
+
+            $("#numeri div").click(function () {
+                var scritta = $(this).text();
+                var c = $("#div1").html();
+                //$("#div1").html(c + " " + scritta);
+                $("#div1").html(c + scritta);
+            });
+
+            $("#cancella").click(function () {
+                var r = confirm("Sicuro di voler cancellare tutto?");
+                if (!r)
+                    return;
+                $("#div1").html("");
+            });
+
+            $("#cancellaUltimo").click(function () {
+                var c = $("#div1").text();
+                var s = c.substring(0, c.length - 1);
+                $("#div1").html(s);
+            });
+
+        </script>    
+    </body>
+</html>

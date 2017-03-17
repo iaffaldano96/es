@@ -27,20 +27,38 @@ and open the template in the editor.
             - $(" ").css()=> 1)$("p.errore").css("color","red")=>tutti i paragrafi di classe errore rossi
                              2) var colore =$("p.errore").css("color")=> restituisce il colore del primo colore che trova
                              3)$("p.errore").css({"color":"red", "nomeProprietà":"valore"})=> 
-            
+            - $("p").text()=> restituisce tutto il testo nei paragrafi senza i tag
             - addclass
             - removeclass
         
             - $("img#img1 ").attr("src","imma.jpg")=> posso 1 o 2 param //carico  a tutti della stessa classe la stessa immagine
                 - var percorso =$("img#img1 ").attr("src")=> mi restituisce il percorso dell'immagine
         
-            EVENTO CLICK
+            EVENTI
                 //ogni volta che clicco sulla cella, fa la funzione anonima nei td, cioè scrive * nella cella
             - $("table#g1 td").click(function(){
                                         $(this).html("*")
                                         var x=$(this).html(); =>per leggere la roba nella cella
                                       })    
-        
+            - $("").mouseDown.()=> $("").mouseUp.()
+                    //ciclo for    da 0 a .lengtt-1 // elm=> l'oggetto. Ora su ogni Para
+            - $("p").each.(function(i,elm){
+                                $(elm) => $(this)
+                                var cColori=["red"...];
+                                $(elm).css("backgroun-color", valori[i% vColori.length]
+                           })
+            - $("table#g1 td").html(function(i){
+                                        var valore="cella "+i;
+                                        .....
+                                        return valore;
+                                    })
+            - $("table#g1 td").css("box-shadow",function(i){
+                                                    if(i%2) => i dispari perché ritorna 0 e come boolean sarebbe false
+                                                        return "5px 5px 5px blue";
+                                                    else
+                                                        return "";
+                                                })                        
+                 $("#div1").css("overflow", "hidden"); ==> per far non si che esca dal div il testo                                
         -->
         
         

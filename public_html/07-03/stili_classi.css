@@ -1,0 +1,28 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 7-mar-2017, 15.54.36
+    Author     : tss
+*/
+
+#div1{    
+    width: 250px; height:200px;
+    border: solid 2px aqua;    
+}
+
+.formati span{
+    padding: 5px
+}
+
+.cors {
+    font-style: italic 
+}
+.grass {
+    font-weight: bold
+}
+.sotto {
+   text-decoration: underline
+}

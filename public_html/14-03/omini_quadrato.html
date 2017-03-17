@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Circolo alcolisti anonimi</title>
+        <script src="jquery-3.1.1.min.js" type="text/javascript"></script>
+        <link href="stili_quad.css" rel="stylesheet" type="text/css"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <br>
+        <input type="button" id="pul1" value="GO!">
+        <div class="conte">
+            <div id="omino"> </div>
+            <div id="omino2"> </div>
+        </div>
+
+        <script>
+            var sin = 10;
+            var dex = 500;
+            var su = 10;
+            var giu = 400;
+            var fromLeToRi = true;
+            var fromTopToBot = true;
+
+            $("#pul1").click(function () {
+                setInterval(function () {
+                    var r = parseInt(Math.random() * 256);
+                    var g = parseInt(Math.random() * 256);
+                    var b = parseInt(Math.random() * 256);
+                    var r1 = parseInt(Math.random() * 256);
+                    var g1 = parseInt(Math.random() * 256);
+                    var b1 = parseInt(Math.random() * 256);
+                    $("#omino").css({"background-color": `rgb(${r},${g},${b})`, "border-color": `rgb(${r1},${g1},${b1})`});
+                    r = parseInt(Math.random() * 256);
+                    g = parseInt(Math.random() * 256);
+                    b = parseInt(Math.random() * 256);
+                    r1 = parseInt(Math.random() * 256);
+                    g1 = parseInt(Math.random() * 256);
+                    b1 = parseInt(Math.random() * 256);
+                    $("#omino2").css({"background-color": `rgb(${r},${g},${b})`, "border-color": `rgb(${r1},${g1},${b1})`});
+
+
+                    if (sin <= 10)
+                        fromLeToRi = false;
+                    if (sin >= dex)
+                        fromLeToRi = true;
+                    if (su <= 10)
+                        fromTopToBot = false;
+                    if (su >= giu)
+                        fromTopToBot = true;
+
+                    if (!fromLeToRi && !fromTopToBot) {
+                        sin += 20;
+                    }
+                    if (fromLeToRi && !fromTopToBot)
+                        su += 20;
+
+                    if (fromTopToBot && fromLeToRi)
+                        sin -= 20;
+                    if (!fromLeToRi && fromTopToBot) {
+                        su -= 20;
+                    }
+
+                    $("#omino").css({
+                        "position": "absolute",
+                        "top": su,
+                        "left": sin});
+
+                    if (!fromLeToRi && !fromTopToBot) {
+                        $("#omino2").css({
+                            "position": "absolute",
+                            "top": su,
+                            "left": 140 + sin});
+                    }
+
+                    if (fromTopToBot && fromLeToRi) {
+                        $("#omino2").css({
+                            "position": "absolute",
+                            "top": su,
+                            "left": 140 + sin});
+                    }
+
+                    if (fromLeToRi && !fromTopToBot) {
+                        $("#omino2").css({
+                            "position": "absolute",
+                            "top": 140 + su,
+                            "left": sin});
+                    }
+
+                    if (!fromLeToRi && fromTopToBot) {
+                        $("#omino2").css({
+                            "position": "absolute",
+                            "top": 140 + su,
+                            "left": sin});
+                    }
+
+                }, 50); //fine setInterval
+
+            });
+
+            $("body").keydown(function (e) {
+                console.log(e.which);
+              }).keyup(function (e) {
+                console.log(e.which);
+              }).keypress(function (e) {
+                console.log(e.which);
+              });
+
+        </script>
+    </body>
+</html>

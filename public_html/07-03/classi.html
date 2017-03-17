@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Diverse Classi</title>
+        <script src="jquery-3.1.1.min.js" type="text/javascript"></script>
+        <link href="stili_classi.css" rel="stylesheet" type="text/css"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="div1"></div>
+
+        <br><br>
+        <div class="formati">Proprietà:
+            <span>Corsivo</span>
+            <span>Grassetto</span>
+            <span>Sottolineato</span>
+        </div>
+
+        <script>
+            
+            $("#div1").html("<br>Ciao come  stai?");
+ 
+                                
+            $(".formati span").click(function () {
+               
+                if($(this).hasClass("grass"))
+                    $(this).removeClass("grass");
+                else    
+                    $(this).addClass("grass");
+                
+                if($(".formati span:nth-child(1)").hasClass("grass")){                    
+                    $("#div1").removeClass("cors");
+                    $(".formati span:nth-child(1)").css("font-weight", "normal"); 
+                } else {                                                         
+                    $("#div1").addClass("cors");
+                    $(".formati span:nth-child(1)").css("font-weight", "bold");
+                }
+                
+               if( $(".formati span:nth-child(2)").hasClass("grass")){                   
+                    $("#div1").removeClass("grass");
+                    $(".formati span:nth-child(2)").css("font-weight", "normal");
+                } else {                    
+                   $("#div1").addClass("grass");
+                   $(".formati span:nth-child(2)").css("font-weight", "bold");                    
+                }
+                
+                if( $(".formati span:nth-child(3)").hasClass("grass")){
+                    $("#div1").removeClass("sotto");
+                    $(".formati span:nth-child(3)").css("font-weight", "normal");  
+                } else {                    
+                    $("#div1").addClass("sotto");
+                    $(".formati span:nth-child(3)").css("font-weight", "bold");
+                                      
+                }
+            });                   
+            
+        </script>    
+    </body>
+</html>

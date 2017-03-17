@@ -1,0 +1,57 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 7-mar-2017, 8.49.41
+    Author     : tss
+*/
+
+.conte div{
+    float: left;
+}
+#div1{    
+    width: 250px; height:200px;
+    border: solid 2px aqua;    
+}
+
+#numeri div{
+    text-align: center;
+    line-height: 30px;
+    float: left;
+    width: 30px; height:30px;
+    border: solid 1px crimson;
+    /*cursor: crosshair*/
+}
+#tab2 td{
+    width: 30px; height: 30px;
+    border: solid 2px black;
+}
+#div2 #tab2 tr:nth-child(1) td {background-color: red;}
+#div2 #tab2 tr:nth-child(2) td {background-color: blue;}
+#div2 #tab2 tr:nth-child(3) td {background-color: aqua;}
+#div2 #tab2 tr:nth-child(4) td {background-color: blueviolet;}
+#div2 #tab2 tr:nth-child(5) td {background-color: yellowgreen;}
+#div2 #tab2 tr:nth-child(6) td {background-color: brown;}
+#div2 #tab2 tr:nth-child(7) td {background-color: crimson;}
+#div2 #tab2 tr:nth-child(8) td {background-color: darkcyan;}
+#div2 #tab2 tr:nth-child(9) td {background-color: deeppink;}
+#div2 #tab2 tr:nth-child(10) td {background-color: dodgerblue;}
+
+#testo span{
+    float: left;
+    margin-right: 20px
+    
+}
+
+.pulsanteA_S span:last-child{
+    font-weight: bold;
+}
+
+.pulsanteA_S.acceso span:first-child {
+    font-weight: bold;
+}
+.pulsanteA_S.acceso span:last-child {
+     font-weight: normal;
+}    
