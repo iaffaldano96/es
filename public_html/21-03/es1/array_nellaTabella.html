@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <script src="jquery-3.1.1.js" type="text/javascript"></script>
+        <meta charset="UTF-8">
+        <link href="stili_es1.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+          
+        <br><br>
+
+        <div id="div1"></div> 
+
+        <script>
+
+            var nf = "dati/testo1.js";
+            $.ajax({
+                "url": nf,
+                "success": function (r, s, x) {
+                    var c = "persone=" + r;
+                    eval(c);
+                    function creaTabella(oggetto) {
+                        var tabella = "<table>";
+                        //per i th, caption
+                        tabella += "<tr>";
+                        for (var campo in oggetto[0]) {
+                            tabella += "<th>" + campo + "</th>"; //sarebbe come prop nell'es "array.html". Visualizza solo nome, ecc
+                        }
+                        tabella += "</tr>";
+
+                        for (var riga = 0; riga < oggetto.length; riga++) {
+                            tabella += "<tr>";
+                            for (var campo in oggetto[riga]) {
+                                tabella += "<td class="+campo+">"; 
+                                if(campo!="foto")   // per vedere la foto nella cella     
+                                    tabella +=oggetto[riga][campo]; //per visualizzare tipo kim, junsu, e email
+                                else
+                                    tabella +="<img src='"+oggetto[riga][campo]+"'>";
+                                tabella+= "</td>";
+                            }
+                            tabella += "</tr>";
+                        }
+                        tabella += "</table>";
+                        return tabella;
+                    }
+
+                    var h = creaTabella(persone);
+                    $("#div1").html(h);
+                },
+                "error": function (x, s, y) {
+                    alert("errore");
+                }
+            });
+
+        </script>
+    </body>
+</html>

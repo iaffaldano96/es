@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <script src="jquery-3.1.1.js" type="text/javascript"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <select id="regioni">
+            <option value=""> Scegli la regione </option>
+            <option value="piemonte">Piemonte</option>
+            <option value="lombardia">Lombardia</option>
+            <option value="puglia">Puglia</option>
+            <option value="sardegna">Sardegna</option>
+        </select>
+
+        <select id="province">
+            
+        </select>
+
+        <script>
+
+            $("#regioni").change(function () {
+                var regione = $(this).val(); // .val per i capi di testo/ textarea                                        
+                $.ajax({
+                    "url": "dati/" + regione + ".txt",
+                    "success": function (r, s, x) {                       
+                        /*var s=r.split("\n");                        
+                        var c = "province=" + s;
+                        eval(c);                        
+                        var op="";
+                        for (var i = 0; i < province.length; i++) {
+                            for (var campo in province[i]) {
+                                op+= "<option>"+province[i][campo]+"</option>";
+                            }
+                        }
+                        $("#province").html(op);*/
+                        
+                        //altro metodo con l'each
+                        $("#province option").remove(); // per pulirlo. altrimenti somma le province 
+                        var pro=r.split("\n"); 
+                        $(pro).each(function(i,provincia) {
+                            var opzione=$("<option>").val(provincia).html(provincia);
+                            $("#province").append(opzione);
+                        });
+                    },
+                    "error": function (x, s, y) {
+                        $("#province option").remove();
+                        //alert("errore");  ==> se no se clicci Scegli regione da errore dato che c'è value=""
+                    }
+                });
+
+            });
+
+            /*$("#province").change(function () {
+                var provincia = $(this).val(); // .val per i capi di testo/ textarea                                        
+                $.ajax({
+                    "url": "dati/" + provincia + ".txt",
+                    "success": function (r, s, x) {
+                        alert(r);
+                    },
+                    "error": function (x, s, y) {
+                        //alert("errore");
+                    }
+                });
+
+
+            });*/
+
+        </script>
+    </body>
+</html>

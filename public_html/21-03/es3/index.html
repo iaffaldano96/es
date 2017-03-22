@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Pallina</title>
+        <script src="jquery-3.1.1.js" type="text/javascript"></script>
+        <link href="stili.css" rel="stylesheet" type="text/css"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="schermo">
+            <div class="pallina"> </div>
+            <div class="posizione"></div>
+        </div>
+
+        <script>
+
+            var r = intRand();
+            var g = intRand();
+            var b = intRand();
+
+            $(".pallina").css("background-color", `rgb(${r},${g},${b})`);
+
+            $("body").on("click", "div.pallina", function () {
+                //var palla = $("<div>").html();
+                $("body").append("<div>").addClass("pallina");
+                var r2 = intRand();
+                var g2 = intRand();
+                var b2 = intRand();
+                var tp = intRand();
+                var lt = intRand();
+                $(this).css({"background-color": `rgb(${r2},${g2},${b2})`,
+                    "top": tp,
+                    "left": lt});
+
+
+            });
+
+            $(document).mousemove(function(e) {
+                $("#posizione").html(e.pageX+","+e.pageY);
+                });
+
+            function intRand() {
+                return  parseInt(Math.random() * 256);
+            }
+        </script>
+    </body>
+</html>
