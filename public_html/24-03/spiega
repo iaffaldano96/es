@@ -1,0 +1,9 @@
+setInterval({
+
+    $("#imm2").hide()
+
+    $("#imm1").fadeOut(1000)
+    $("#imm2").fadeIn(1000,function(){
+        $("#imm1").show()
+    });
+},100)
