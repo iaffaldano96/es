@@ -7,3 +7,18 @@ setInterval({
         $("#imm1").show()
     });
 },100)
+
+
+PROPRIETÀ CLIP
+
+@keyframes recta{
+
+    0%{
+        clip:recta(300px,400px,300px,400px);
+        opacity: .5;
+    }
+    100%{
+        clip:recta(0,800px,600px,0);
+        opacity: 1;
+    }
+}
