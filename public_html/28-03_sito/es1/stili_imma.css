@@ -1,0 +1,71 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24-mar-2017, 9.00.10
+    Author     : tss
+*/
+td,th{
+    text-align: center;
+    border: solid 1px lightgray;
+    border-radius: 10px;
+    min-height: 50px;
+    min-width: 50px;
+}
+
+#tab1{
+    width: 500px;
+    height: 150px;
+    margin: auto;
+}
+
+.acc1{
+    color: darkblue;
+}
+
+.acc2{
+    color: slateblue;
+}
+
+.acc3{
+    color: white;
+}
+
+.stile1{
+    background-color: cornflowerblue;
+    color: white;
+    border-spacing: 10px;
+    border-style: none
+}
+
+.stile2{
+    background-color: tomato;
+    color: white;
+    border-spacing: 5px;
+    border-style: none
+}
+
+.stile3{
+    background-color: gold;
+    color: black;
+    border-spacing: 20px;
+    border-style: none;    
+}
+
+#a{    
+    border: groove 10px blue;
+    width: 100px;
+    text-align: center;
+}
+#b{
+    border: groove 10px red;
+    width: 100px;
+    text-align: center;
+}
+#c{
+    border: groove 10px greenyellow;
+    width: 100px;
+    text-align: center;
+}

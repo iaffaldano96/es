@@ -1,0 +1,44 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28-mar-2017, 13.40.29
+    Author     : tss
+*/
+
+#tab1 td, #tab2 td{
+    width: 40px; height: 40px;
+    border: solid 2px darkblue;
+}
+
+#div2 #tab2 td:nth-child(1)  {background-color: red;}
+#div2 #tab2 td:nth-child(2)  {background-color: blue;}
+#div2 #tab2 td:nth-child(3)  {background-color: aqua;}
+#div2 #tab2 td:nth-child(4)  {background-color: blueviolet;}
+#div2 #tab2 td:nth-child(5)  {background-color: yellowgreen;}
+#div2 #tab2 td:nth-child(6)  {background-color: brown;}
+#div2 #tab2 td:nth-child(7)  {background-color: crimson;}
+#div2 #tab2 td:nth-child(8)  {background-color: darkcyan;}
+#div2 #tab2 td:nth-child(9)  {background-color: deeppink;}
+#div2 #tab2 td:nth-child(10)  {background-color: dodgerblue;}
+
+#info{
+    width: 250px;
+    height: 400px;
+    position: absolute;
+    top: 20px;
+    right: 1000px;   
+}
+
+#visualizza{
+    border: solid 2px lightslategray;
+    border-radius: 20px;
+    padding: 10px;
+    height: 200px; width: 450px;    
+}
+.nome input{
+    width: 200px;
+    height: 25px;
+}

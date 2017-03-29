@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Circolo immagini</title>
+        <script src="jquery-3.1.1.js" type="text/javascript"></script>
+        <link href="stili_imma.css" rel="stylesheet" type="text/css"/>
+        <meta charset="UTF-8">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <div>
+
+            <select id="animali">
+                <option value=""> Scegli il formato del carattere </option>
+                <option value="10">10</option>
+                <option value="14">14</option>
+                <option value="18">18</option>
+                <option value="20">20</option>
+                <option value="24">24</option>
+            </select>
+
+            <select id="imma">
+                <option value=""> Scegli l'immagine di sfondo </option>
+                <option value="1">Gatti/Cane</option>
+                <option value="2">Misto</option>
+                <option value="3">Asini</option>
+            </select>  
+
+            <select id="face" >
+                <option value=""> Scegli lo stile di scrittura</option>
+                <option value="1">Stile 1</option>
+                <option value="2">Stile 2</option>
+                <option value="3">Stile 3</option>
+            </select>
+            <br><br>
+            <div id="a"> Stile tabella 1</div><br>
+            <div id="b"> Stile tabella 2</div><br>
+            <div id="c"> Stile tabella 3</div>
+
+        </div>
+
+        <h1 style="text-align: center">Animali</h1>
+
+        <div>Gli animali  sono un regno del dominio degli eucarioti. Comprendono circa 1.800.000 specie di organismi classificati, 
+            presenti sulla Terra dal periodo ediacarano.
+
+            Sono inclusi nel regno animale tutti gli eucarioti con differenziamento cellulare, eterotrofi e mobili durante almeno 
+            uno stadio della loro vita. Sono estesi per livello di complessità dai placozoi all'uomo. 
+            Il numero di specie via via scoperte è in costante crescita, e alcune stime portano fino a 40 volte superiore la numerosità reale.
+
+            Il regno animale raggruppa i propri appartenenti in categorie tassonomiche definite dal sistema di classificazione scientifica.
+            Il phylum più numeroso è quello degli Artropodi che conta circa 1.500.000 specie note, di cui 900 000 appartenenti
+            alla classe degli Insetti.
+
+            La disciplina biologica che studia gli animali viene detta zoologia.
+            Altre discipline studiano singoli aspetti scientifici, così la medicina veterinaria studia tutto ciò che riguarda la salute, 
+            principalmente degli animali in rapporto con l'uomo, la fisiologia animale i meccanismi alla base del funzionamento dell'organismo,
+            l'etologia il comportamento, eccetera.
+        </div>
+        <br><br>
+        <div id="tab1">
+
+            <table>
+                <th colspan="5"> Tipi di animali</th>
+                <tr>
+                    <td>Mammiferi</td>
+                    <td>Insettivori</td>
+                    <td>Carnivori</td>
+                    <td>Molluschi</td>
+                    <td>Ruminanti</td>
+                </tr>
+                <tr>
+                    <td>Leone</td>
+                    <td>Toporagno</td>
+                    <td>Gatto</td>
+                    <td>Cozza</td>
+                    <td>Mucca</td>
+                </tr>
+                <tr>
+                    <td>Tigre</td>
+                    <td>Talpa</td>
+                    <td>Orso</td>
+                    <td>Lumaca</td>
+                    <td>Capra</td>
+                </tr>
+                <tr>
+                    <td>Elefante</td>
+                    <td>Riccio</td>
+                    <td>Iena</td>
+                    <td>Polpo</td>
+                    <td>Giraffa</td>
+                </tr>
+            </table>
+
+            <a href="pag2.html">Pagina 2</a>
+
+        </div>
+        <script>
+
+            $("#animali").change(function () {
+                var anima = $(this).val();
+                $("body").css("font-size", anima + "px ");
+                var c = $("body").css("font-size");
+                localStorage.setItem("size", c);
+            });
+
+            $("#imma").change(function () {
+                $("body").css({"background-image": "none",
+                    "opacity": "1"});
+                var immag = $(this).val();
+                if (immag != 0) {
+                    var per = "imma" + immag + ".jpg";
+                    $("body").css({"background-image": "url('" + per + "')",
+                        "background-size": "1500px",
+                        "opacity": "1"});
+                }
+                var d = $("body").css("background-image");
+                localStorage.setItem("sfondo", d);
+            });
+
+            $("#face").change(function () {
+
+                $(this).removeClass();
+
+                var faces = $(this).val();
+                if (faces == 1) {
+                    $("body").addClass("acc1");
+                }
+                if (faces == 2) {
+                    $("body").addClass("acc2");
+                }
+                if (faces == 3) {
+                    $("body").addClass("acc3");
+                }
+            });
+
+            $("#a").click(function () {
+                $("#tab1 table").removeClass();
+                $("#tab1 table").addClass("stile1");
+            });
+            $("#b").click(function () {
+                $("#tab1 table").removeClass();
+                $("#tab1 table").addClass("stile2");
+            });
+
+            $("#c").click(function() {
+                $("#tab1 table").removeClass();
+                $("#tab1 table").addClass("stile3");
+            });
+
+
+        </script>
+
+    </body>
+</html>
