@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Date</title>
+        <script src="jquery-3.1.1.js" type="text/javascript"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="div1"></div>
+        <script>
+            
+            setInterval(function() {
+                    
+                    var orario=new Date();                    
+                    var anno=orario.getFullYear();
+                    var mese=orario.getMonth();
+                    var giorno=orario.getDate();
+                    var ora=orario.getHours();
+                    var minuti=orario.getMinutes();
+                    var sec=orario.getSeconds();
+                    var msec=orario.getMilliseconds();
+                    
+                    var nelDiv="Giorno completo=> "+orario+"<br>Anno=> "+anno+"<br>Mese=> "+mese+"<br>Giorno=> "+giorno
+                        +"<br>Ora=> "+ora+"<br>Minuti=> "+minuti+"<br>Secondi=> "+sec+"<br>Millisecondi=> "+msec;
+                
+                    $("#div1").html(nelDiv);
+                    
+            },1000);
+            
+        </script>
+    </body>
+</html>
