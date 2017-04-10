@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title> Orologio</title>
+        
+        <link href="stili_orol.css" rel="stylesheet" type="text/css"/>
+        <meta charset="UTF-8">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="jquery-3.1.1.min.js" type="text/javascript"></script>
+        <script src="jquery-ui.min.js" type="text/javascript"></script>
+        <link href="jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+        <link href="jquery-ui.structure.min.css" rel="stylesheet" type="text/css"/>
+        <link href="jquery-ui.theme.min.css" rel="stylesheet" type="text/css"/>
+        <script>
+             $(function () {
+                $("#orologio").draggable().resizable();
+            });
+        </script>
+            
+    </head>
+    <body>
+        <div id="orologio" class="ui-widget-content">
+            <div id="ore"></div>
+            <div id="min"></div>
+            <div id="sec"></div>
+        </div>
+
+
+        <script>
+
+            setInterval(function () {
+
+                var orario = new Date();
+                var ora = (360 / 12) * orario.getHours() - 90;
+                var minn = (360 / 60) * orario.getMinutes() - 90;
+                var secc = (360 / 60) * orario.getSeconds() - 90;
+
+                $("#sec").css("transform", `rotate(${secc}deg)`);
+                $("#min").css("transform", `rotate(${minn}deg)`);
+                $("#ore").css("transform", `rotate(${ora}deg)`);
+
+            }, 1000);
+
+
+        </script>
+
+    </body>
+</html>

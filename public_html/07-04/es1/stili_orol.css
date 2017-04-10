@@ -1,0 +1,37 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 31-mar-2017, 9.49.57
+    Author     : tss
+*/
+
+#orologio{
+    width: 200px; height: 200px;
+    border-radius: 100px;
+    border: solid 3px grey;
+    background-image: url('imma2.jpg');
+    background-size: 200px 200px;
+}
+
+#ore,#min,#sec{
+    width: 100px;
+    height: 4px;    
+    position: absolute;
+    margin-left: 100px;
+    margin-top: 100px;
+    transform-origin: 0% 50%;
+}
+
+#ore{
+     width: 80px;
+    border: solid 2px blue;
+}
+#min{
+    border: solid 2px red;
+}
+#sec{
+    border: solid 2px darkviolet;
+}

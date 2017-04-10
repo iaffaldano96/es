@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Rich Text Box</title>
+        <script src="jquery-3.1.1.js" type="text/javascript"></script>
+        <link href="stili.css" rel="stylesheet" type="text/css"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <input type="button" id="gr"  value="GRASSETTO">
+        <input type="button" id="co" value="CORSIVO">
+        <input type="button" id="so" value="SOTTOLINEATO">
+
+        <br><br>
+        <label for="tito">Titolo</label>
+        <input type="text" id="tito">
+        <br><br>
+        
+        <div contenteditable id="div1">Scrivi qui...</div>
+        <br><br>
+        <input type="button" id="cmdSalva" value="SALVA">
+        <script>
+
+            $("#gr").click(function () {                
+                document.execCommand("bold");   
+            });
+            $("#co").click(function () {
+                document.execCommand("italic");
+            });
+            $("#so").click(function () {                
+                document.execCommand("underline");
+            });
+
+            $("#cmdSalva").click(function() {
+                var obj={};
+                obj.testo=$("#div1").val();
+                obj.titolo=$("#tito").val();
+                obj.autore="Lisa";
+                
+                $.ajax({
+                    "data":obj,
+                    "url":"richtTextBox.html",
+                    
+                    "success": function (data, textStatus, jqXHR) {
+                        $("body").append($("<div>").html(data));
+                    },
+                    
+                    "error": function (x, textStatus, errorThrown) {
+                        alert("Error\n"+x.statusText);
+                    }                    
+                    
+                });
+                
+                
+            });
+
+        </script>
+
+    </body>
+</html>
